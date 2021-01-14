@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Guessing Game</title>
+    <p id="results">Results</p>
+</head>
+<body>
+    <h1>Color Guessing Game</h1>
+    <button type="button" onclick="runGame()">Start Game</button>
+    <script>
+        const COLORS_ARRAY = ['blue','cyan','gold','gray','green','magenta','orange','red','white','yellow'];
+        let result = document.getElementById("results"); 
+        function runGame(){
+            let guess = '';
+            let correct = false;
+            let numTries = 0;
+            const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
+            const target = COLORS_ARRAY[targetIndex];
+            //alert(target);
+            console.log(target);
+            do{
+                guess = prompt("I am thinking of one of these colors:\n\n" +
+                COLORS_ARRAY.join(', ')+
+                "\n\n What color am I thinking of? " );
+                numTries = numTries + 1;
+
+                if(guess === null){
+                    result.innerHTML += "<br>" + numTries + ") " + guess + " is " + correct;
+                    alert("Quiter!");
+                    return true;
+                }
+                correct = checkGuess(guess.toLowerCase() , target)
+            }
+            while (!correct) ;
+            document.body.style.background = guess;
+            alert("Congratulations: You won in " + numTries + " tries");
+            result.innerHTML += "<br>" + numTries + ") " + guess + " is " + correct;
+            }
+
+        function checkGuess(guess , target){
+            const sorryMessage ="You're Wrong! \n\n";
+            const tryAgainMessage ="\n\nTry again, Loser!";
+            let correct = false;
+            if(!COLORS_ARRAY.includes(guess)){
+                alert("I don't recognize that" + tryAgainMessage);
+            } else if(guess < target){
+                alert(sorryMessage + "Hint: Your pick was alpha lower than mine" + tryAgainMessage);
+            } else if(guess > target){
+                alert(sorryMessage + "Hint: Your pick was alpha higher than mine" + tryAgainMessage);
+            }
+            else {
+                correct = true;
+            }
+            return correct;
+        }
+    </script>
+</body>
+</html>
