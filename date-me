@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Date Me</title>
+    <style>
+        body{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            max-width: 66%;
+            margin: auto;
+            }
+        legend{
+            background: darkcyan;
+            color:mintcream;
+            border-radius: 10px;
+            padding: 12px;
+        }
+        fieldset{
+            background:slategray;
+            border: 10px solid darkgray;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            min-width: 250px;
+        }
+        div{margin: 10px;}
+        div:hover{color:rgb(245, 245, 245);}
+        label{
+            display: inline-block;
+            text-align: right;
+            vertical-align: top;
+            max-width: 200px;
+        }
+        input[type="radio"]+label, input[type="checkbox"]+label{
+            width: auto;
+        }
+        input[type="range"]{width: 20%;}
+        .range-caption{
+            background-color:darksalmon;
+            color:snow;
+            padding: 6px;
+            text-align: center;
+        }
+        input[type="submit"]{
+            background: cadetblue;
+            border-radius: 10px;
+            color: cornsilk;
+            font-size: 20px;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Personal Information</h1>
+    <form action="https://learn.nucamp.co/show_everything.php" method="post"
+        enctype="multipart/form-data">
+        <!--first fieldset-->
+        <fieldset>
+            <legend>Your Profile Picture</legend>
+            <div>
+                <label for="avatar">Upload Your Profile Picture</label>
+                <input type="file" id="avatar" name="avatarX" required>
+            </div>
+            <img id="preview" src="../images/No Face.png" width="200" />
+        </fieldset>
+        <!--second fieldset-->
+        <fieldset>
+            <legend>About You</legend>
+            <div>
+                <label for="your name"></label>
+                <input type="text" id="name" name="nameX" placeholder="Your Name" required />
+            </div>
+            <div>
+                <label>Gender: </label>
+                <input type="radio" id="female" name="gender" value="female" required />
+                <label for="female">Female</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+            </div>
+            <div>
+                <label for="age">Age: </label>
+                <input type="number" id="age" name="age" required />
+            </div>
+            <div>
+                <label for="dob">Birth Date: </label>
+                <input type="date" id="dob " name="dob" required />
+            </div>
+            <div>
+                <label for="color">Favorite Color: </label>
+                <input type="color" id="color" name="color" required />
+            </div>
+            <div>
+                <label for="country">Your Favorite Country: </label>
+                <select id="country" name="country">
+                    <option value="brazil">Brazil</option>
+                    <option value="france">France</option>
+                    <option value="united states">United States</option>
+                    <option value="china">China</option>
+                    <option value="spain">Spain</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label for="education">Highest Level of Education: </label>
+                <span class="range-caption">High School Diploma</span>
+                <input type="range" id="education" name="education" required
+                        min="0" max="100" value="50" />
+                <span class="range-caption">Post-Graduate Degree</span>
+            </div>
+        </fieldset>
+        <!--third fieldset-->
+        <fieldset>
+            <legend>Your Contact Information</legend>
+            <div>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div>
+                <label for="phone">Phone Number: </label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div>
+                <label for="address">Address: </label>
+                <textarea id="address" name="address" cols="40"></textarea>
+            </div>
+            <div>
+                <label>Contact method(s): </label>
+                <input type="checkbox" id="emailchkbx" name="contact-1" value="email">
+                <label for="emailchkbx">Email</label>
+                <input type="checkbox" id="phonechkbx" name="contact-2" value="phone">
+                <label for="phonechkbx">Phone</label>
+                <input type="checkbox" id="mailchkbx" name="contact-3" value="USmail">
+                <label for="mailchkbx">Snail Mail</label>
+            </div>
+        </fieldset>
+        <div>
+            <input type="submit" />
+        </div>
+    </form>
+    <script src="https://url.nucamp.co/datingjs"></script>
+</body>
+</html>
