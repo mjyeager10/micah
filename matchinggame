@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching-game</title>
+    <style>
+        img{position: absolute;}
+        div{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+        #rightSide{
+            left:500px;
+            border-left: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Duck Duck Donald: A Matching Game</h1>
+    <button id="btn" onclick="runGame()">Start Your Donalds</button>
+    <p>Instructions: Click on the unmatched Donald on the left.<br>
+        Total Wins: <span id="win">0</span>, Total Losses: <span id="lose">0</span>
+        | Your donalds so far: <span id="dnlds">0</span>
+        <br>
+        How many donalds do you want?
+        <input type="number" id="numFace" value="2" style="width: 40px;" />
+    </p>
+    <main id="m">
+        <div id="leftSide">
+            <!-- <img src="../Donald the Duck.png" style="top:100px;left:100px;"> -->
+        </div>
+        <div id="rightSide"></div>
+    </main>
+    <script>
+        let numberOfFaces; // = 5;
+        let numFace;
+        let newStart =true;
+        const theLeftSide = document.getElementById("leftSide");
+        const theRightSide = document.getElementById("rightSide");
+        let wins = 0;
+        let loss = 0;
+        function runGame(){
+            document.getElementById("btn").disabled = true;
+            if(newStart == true){
+                numberOfFaces = document.getElementById("numFace").value;
+                numFace = document.getElementById("numFace").value;
+            }
+            for(i = 1; i <= numberOfFaces; i++){
+                let randomTop = Math.floor(Math.random() * 400);
+                let randomLeft = Math.floor(Math.random() * 400);
+                const face = document.createElement("img");
+                face.src = "../Donald the Duck.png";
+                face.style.top = randomTop + "px";
+                face.style.left = randomLeft + "px";
+                face.style.width = 100 + "px";
+                theLeftSide.appendChild(face);
+            }
+            const leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.lastChild);
+            theRightSide.appendChild(leftSideImages);
+            theLeftSide.lastChild.addEventListener('click' , nextLevel);
+            document.getElementById("m").addEventListener('click' , gameOver);
+            document.getElementById("dnlds").innerHTML = numberOfFaces;
+
+        }
+        function nextLevel(event){
+            event.stopPropagation();
+            wins = wins + 1;
+            newStart = false;
+            document.getElementById('win').innerHTML = wins;
+            while (theLeftSide.firstChild) {
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            }
+            theRightSide.innerHTML = "";
+            numberOfFaces = Number(numberOfFaces) + Number(numFace); //5;
+            runGame();
+        }
+        function gameOver() {
+            alert("I'll Be Doggone! You Lost!");
+            loss = loss + 1;
+            document.getElementById('lose').innerHTML = loss;
+            document.getElementById("btn").disabled = false;
+            document.getElementById("m").removeEventListener('click' , gameOver);
+            theLeftSide.lastChild.removeEventListener('click' , nextLevel);
+            while (theLeftSide.firstChild) {
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            }
+            theRightSide.innerHTML = "";
+            newStart = true;
+            numberOfFaces = document.getElementById("numFace").value; //5;
+            document.getElementById("dnlds").innerHTML = 0;
+        }
+    </script>
+</body>
+</html>
