@@ -67,7 +67,7 @@
         }
         function nextLevel(event){
             event.stopPropagation();
-            wins = wins + 1;
+            wins = wins + 10;
             newStart = false;
             document.getElementById('win').innerHTML = wins;
             while (theLeftSide.firstChild) {
