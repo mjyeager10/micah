@@ -29,7 +29,7 @@
     </p>
     <main id="m">
         <div id="leftSide">
-            <!-- <img src="../Donald the Duck.png" style="top:100px;left:100px;"> -->
+            <!-- <img src="../Donald" style="top:100px;left:100px;"> -->
         </div>
         <div id="rightSide"></div>
     </main>
