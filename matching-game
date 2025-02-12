@@ -29,7 +29,7 @@
     </p>
     <main id="m">
         <div id="leftSide">
-            <!-- <img src="../	https://cdn.theatlantic.com/thumbor/_JQbkK2AdN7UUX…2x1098/media/img/mt/2019/09/RTS2PCAV/original.jpg" style="top:100px;left:100px;"> -->
+            <!-- <img src="https://en.wikipedia.org/wiki/Age_and_health_concerns_about_Donald_Trump#/media/File:President_Donald_Trump_and_Vice_President_J.D._Vance_(cropped).jpg;"> -->
         </div>
         <div id="rightSide"></div>
     </main>
@@ -51,7 +51,7 @@
                 let randomTop = Math.floor(Math.random() * 400);
                 let randomLeft = Math.floor(Math.random() * 400);
                 const face = document.createElement("img");
-                face.src = "https://cdn.theatlantic.com/thumbor/_JQbkK2AdN7UUX…2x1098/media/img/mt/2019/09/RTS2PCAV/original.jpg";
+                face.src = "https://en.wikipedia.org/wiki/Age_and_health_concerns_about_Donald_Trump#/media/File:President_Donald_Trump_and_Vice_President_J.D._Vance_(cropped).jpg";
                 face.style.top = randomTop + "px";
                 face.style.left = randomLeft + "px";
                 face.style.width = 100 + "px";
