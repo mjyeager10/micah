@@ -29,7 +29,7 @@
     </p>
     <main id="m">
         <div id="leftSide">
-            <!-- <img src="../Donald" style="top:100px;left:100px;"> -->
+            <!-- <img src="../Donald.png" style="top:100px;left:100px;"> -->
         </div>
         <div id="rightSide"></div>
     </main>
@@ -51,7 +51,7 @@
                 let randomTop = Math.floor(Math.random() * 400);
                 let randomLeft = Math.floor(Math.random() * 400);
                 const face = document.createElement("img");
-                face.src = "../Donald the Duck.png";
+                face.src = "../Donald.png";
                 face.style.top = randomTop + "px";
                 face.style.left = randomLeft + "px";
                 face.style.width = 100 + "px";
